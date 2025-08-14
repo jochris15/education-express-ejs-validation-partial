@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+    <body class="bg-yellow-300 min-h-screen p-6 max-w-7xl mx-auto">
+        <!-- Header -->
+        <%- include('./partials/header.ejs') %>
+
+            <!-- Add Game Form -->
+            <div class="bg-white border-4 border-black neo-shadow">
+                <!-- Form Header -->
+                <div class="bg-green-400 border-b-4 border-black p-6">
+                    <h2 class="text-3xl font-bold text-black">EDIT GAME</h2>
+                </div>
+
+                <!-- Form Content -->
+                <div class="p-8">
+                    <%- include("./partials/errors.ejs") %>
+                        <form action="/games/edit/<%= game.id %>" method="POST" class="space-y-6">
+                            <!-- Game Name -->
+                            <div class="bg-pink-200 border-4 border-black p-6">
+                                <label for="name" class="block text-xl font-bold text-black mb-4">GAME NAME</label>
+                                <input type="text" id="name" name="name"
+                                    class="w-full p-4 text-lg font-bold text-black bg-white border-4 border-black focus:outline-none focus:ring-0 focus:border-black"
+                                    placeholder="Enter game name..." value="<%=game.name %>">
+                            </div>
+
+                            <!-- Game Image URL -->
+                            <div class="bg-blue-200 border-4 border-black p-6">
+                                <label for="gameImg" class="block text-xl font-bold text-black mb-4">GAME IMAGE
+                                    URL</label>
+                                <input type="url" id="gameImg" name="gameImg"
+                                    class="w-full p-4 text-lg font-bold text-black bg-white border-4 border-black focus:outline-none focus:ring-0 focus:border-black"
+                                    placeholder="https://example.com/game-image.jpg" value="<%=game.gameImg %>">
+                            </div>
+
+                            <!-- Release Date -->
+                            <div class="bg-purple-200 border-4 border-black p-6">
+                                <label for="releaseDate" class="block text-xl font-bold text-black mb-4">RELEASE
+                                    DATE</label>
+                                <input type="date" id="releaseDate" name="releaseDate"
+                                    class="w-full p-4 text-lg font-bold text-black bg-white border-4 border-black focus:outline-none focus:ring-0 focus:border-black"
+                                    value="<%=game.formattedReleaseDate %>">
+                            </div>
+
+                            <!-- Developer -->
+                            <div class="bg-orange-200 border-4 border-black p-6">
+                                <label for="developer" class="block text-xl font-bold text-black mb-4">DEVELOPER</label>
+                                <input type="text" id="developer" name="developer"
+                                    class="w-full p-4 text-lg font-bold text-black bg-white border-4 border-black focus:outline-none focus:ring-0 focus:border-black"
+                                    placeholder="Enter developer name..." value="<%=game.developer %>">
+                            </div>
+
+                            <!-- Genre -->
+                            <div class="bg-cyan-200 border-4 border-black p-6">
+                                <label for="genre" class="block text-xl font-bold text-black mb-4">GENRE</label>
+                                <input type="text" id="genre" name="genre"
+                                    class="w-full p-4 text-lg font-bold text-black bg-white border-4 border-black focus:outline-none focus:ring-0 focus:border-black"
+                                    placeholder="e.g., Action RPG, Adventure, Strategy..." value="<%=game.genre %>">
+                            </div>
+
+                            <!-- Form Buttons -->
+                            <div class="flex space-x-4 pt-6">
+                                <button type="submit"
+                                    class="bg-green-400 border-4 border-black neo-shadow px-8 py-4 text-black font-bold text-xl hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-200">
+                                    EDIT GAME
+                                </button>
+
+                                <a href="/games"
+                                    class="inline-block bg-red-400 border-4 border-black neo-shadow px-8 py-4 text-black font-bold text-xl hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-200">
+                                    CANCEL
+                                </a>
+                            </div>
+                        </form>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <%- include('./partials/footer.ejs') %>
+    </body>
+
+</html>
