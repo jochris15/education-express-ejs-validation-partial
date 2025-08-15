@@ -104,26 +104,13 @@ class Model {
 
     static validation(name, gameImg, releaseDate, developer, genre) {
         const errors = []
-        if (!name) {
-            errors.push('Name required')
-        }
-
-        if (!gameImg) {
-            errors.push('Game image required')
-        }
-
-        if (!releaseDate) {
-            errors.push('Release date required')
-        }
-
-        if (!developer) {
-            errors.push('Developer required')
-        }
-
-        if (!genre) {
-            errors.push('Genre required')
-        }
-
+        
+        if (!name) errors.push('Name required')
+        if (!gameImg) errors.push('Game image required')
+        if (!releaseDate) errors.push('Release date required')
+        if (!developer) errors.push('Developer required')
+        if (!genre) errors.push('Genre required')
+        
         return errors
     }
 }
